@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Peticiones HTTP</title>
+    <link rel="stylesheet" type="text/css" href="/css/mocks.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="side-menu">
+                <li class="li-menu"><a class="a-menu" href="./login.html">Login</a></li>
+                <li class="li-menu"><a class="a-menu" href="./mocks.html">Manage My Mocks</a></li>
+                <li class="li-menu"><a class="a-menu" href="./index.html">New Mock</a></li>
+            </ul>
+        </nav>
+        <h1 class="tituloPrincipal">Manage your mocks</h1>
+
+    </header>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>URL</th>
+                    <th>descripcion</th>
+                    <th>Estado</th>
+                    <th>Acciones</th> <!-- Nueva columna para acciones -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>https://api.example.com/data</td>
+                    <td>"{'ejemplo': 'ejelkjdgkljsdbgalkjdsgblkasjdbglakdjsbglkasjdbglkasjdgblmplo' }"</td>
+                    <td class="success">200 OK</td>
+                    <td class="-action">
+                        <!-- Icono para visitar el enlace -->
+                        <a href="https://api.example.com/data" target="_blank" class="action-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <!-- Icono para eliminar la fila -->
+                        <span class="action-icon" onclick="eliminarFila(this)">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                    </td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
