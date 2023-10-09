@@ -65,4 +65,17 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró al usuario: " + e.getMessage());
         }
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> iniciarSesion(@RequestParam String usuario, @RequestParam String contrasena) {
+        // Realiza la validación de inicio de sesión aquí
+        // Puedes comparar las credenciales con las almacenadas en tu base de datos o donde las tengas
+
+        // Supongamos que tienes un servicio que verifica las credenciales
+        if (usuarioService.validarCredenciales(usuario, contrasena)) {
+            return ResponseEntity.status(HttpStatus.OK).body("Inicio de sesión exitoso.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas.");
+        }
+    }
 }
