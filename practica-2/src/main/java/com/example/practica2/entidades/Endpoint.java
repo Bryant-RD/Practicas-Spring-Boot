@@ -8,7 +8,6 @@ public class Endpoint {
 
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String ruta;
