@@ -8,13 +8,9 @@ public class Endpoint {
 
 
     @Id
-<<<<<<< HEAD
-    private String id;
-=======
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
->>>>>>> 74964b2299e0ad65b5913a6e2c7a7d07c791b9ba
-
     private String ruta;
     private String metodo;
     private String headers;
