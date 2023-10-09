@@ -6,9 +6,10 @@ import java.util.Date;
 @Entity
 public class Endpoint {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String ruta;
     private String metodo;
@@ -21,23 +22,20 @@ public class Endpoint {
     private String tiempoExpiracion;
     private int demoraRespuesta;
     private boolean validarJwt;
+    private String fechaCreacion;
 
-    // Fecha de creación
-    private Date fechaCreacion = new Date();
-
-    // Getters y setters
 
     public Endpoint() {
-        // Constructor vacío necesario para JPA
+
     }
 
     // Getters y setters
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -129,11 +127,12 @@ public class Endpoint {
         this.validarJwt = validarJwt;
     }
 
-    public Date getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+
 }
