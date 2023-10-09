@@ -1,8 +1,10 @@
-export const loginUser = async (userName, password) => {
+export const loginUser = async (usuario, contrasena) => {
+
     try {
-        const response = await fetch(`http://localhost:8080/api/estudiante/login/${userName}/${password}`)
+        const response = await fetch(`http://localhost:8080/api/estudiante/login?usuario=${usuario}&contrasena=${contrasena}`)
+        return response;
     } catch (error) {
-        
+        console.error(error)
     }
 }
 

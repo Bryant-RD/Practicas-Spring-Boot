@@ -2,11 +2,16 @@ package com.example.practica2.controlador;
 
 import com.example.practica2.entidades.Usuario;
 import com.example.practica2.servicios.UsuarioService;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import io.jsonwebtoken.Jwts;
+
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -66,14 +71,19 @@ public class UserController {
         }
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<String> iniciarSesion(@RequestParam String usuario, @RequestParam String contrasena) {
-        // Realiza la validación de inicio de sesión aquí
-        // Puedes comparar las credenciales con las almacenadas en tu base de datos o donde las tengas
 
-        // Supongamos que tienes un servicio que verifica las credenciales
         if (usuarioService.validarCredenciales(usuario, contrasena)) {
-            return ResponseEntity.status(HttpStatus.OK).body("Inicio de sesión exitoso.");
+            String secretKey = "TuClaveSecretaSuperSeguraBryantJoelReynoso10143453";
+            // Construye el token JWT
+            String token = Jwts.builder()
+                    .setSubject(usuario)
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // Fecha de expiración del token (opcional, aquí es 24 horas después de la emisión)
+                    .signWith(Keys.hmacShaKeyFor(secretKey.getBytes()), SignatureAlgorithm.HS256) // Firma el token con la clave secreta
+                    .compact();
+            return ResponseEntity.status(HttpStatus.OK).body(token);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas.");
         }
