@@ -14,14 +14,14 @@ body {
     background-color: white;
     border: #cacaca9d solid 1px;
     border-radius: 5px;
-    
+    overflow-x: auto; /* Agregamos scroll horizontal en el contenedor */
 }
 
 /* Estilo para la tabla */
 table {
     border-collapse: collapse;
-    width: 80%;
-    margin: 20px auto;
+    width: 100%; /* Cambiamos el ancho a 100% para que ocupe todo el contenedor */
+    /*margin: 20px auto;  Quitar el margen aquí */
 }
 
 /* Estilo para las celdas del encabezado */
@@ -62,5 +62,32 @@ td.warning {
 .td-action {
     /* display: flex;
     justify-content: space-between;*/
-    padding: 1rem; 
+    padding: 1rem;
+}
+
+.detalles {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: auto;
+}
+
+.texto-detalle {
+    font-size: x-small;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem;
+    height: 15px;
+    text-transform: uppercase;
+    margin: 0.5rem;
+    background-color: #007bff;
+}
+
+.body-response {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
