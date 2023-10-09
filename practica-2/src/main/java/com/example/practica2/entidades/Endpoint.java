@@ -9,7 +9,7 @@ public class Endpoint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
 
     private String ruta;
     private String metodo;
@@ -18,6 +18,7 @@ public class Endpoint {
     private String contentType;
     private String cuerpo;
     private String nombre;
+    private String codigolenguaje;
     private String descripcion;
     private String tiempoExpiracion;
     private int demoraRespuesta;
@@ -31,14 +32,13 @@ public class Endpoint {
 
     // Getters y setters
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-
     public String getRuta() {
         return ruta;
     }
@@ -133,6 +133,14 @@ public class Endpoint {
 
     public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getCodigolenguaje() {
+        return codigolenguaje;
+    }
+
+    public void setCodigolenguaje(String codigolenguaje) {
+        this.codigolenguaje = codigolenguaje;
     }
 
 }

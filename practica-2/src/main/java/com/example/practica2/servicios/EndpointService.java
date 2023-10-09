@@ -39,7 +39,7 @@ public class EndpointService {
         if (!endpointRepository.existsById(Long.valueOf(id))) {
             throw new IllegalArgumentException("Endpoint no encontrado");
         }
-        endpoint.setId(id);
+        endpoint.setId(Integer.parseInt(id));
         return endpointRepository.save(endpoint);
     }
 
