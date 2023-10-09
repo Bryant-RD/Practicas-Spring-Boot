@@ -1,6 +1,6 @@
 package com.example.practica2.servicios;
 
-import com.example.practica2.entidades.User;
+import com.example.practica2.entidades.Usuario;
 import com.example.practica2.repo.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +18,7 @@ public class UsuarioService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void registrarUsuario(User usuario) {
+    public void registrarUsuario(Usuario usuario) {
         // Verificar si el usuario ya existe por su nombre de usuario
         if (usuarioRepository.findByUsuario(usuario.getUsuario()).isPresent()) {
             throw new IllegalArgumentException("El nombre de usuario ya está en uso.");
@@ -31,7 +31,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public void modificarUsuario(User usuario) {
+    public void modificarUsuario(Usuario usuario) {
         // Verificar si el usuario existe por su ID
         if (!usuarioRepository.existsById(usuario.getId())) {
             throw new IllegalArgumentException("El usuario no existe.");

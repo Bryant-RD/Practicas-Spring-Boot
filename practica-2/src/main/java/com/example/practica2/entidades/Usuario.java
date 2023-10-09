@@ -3,7 +3,7 @@ package com.example.practica2.entidades;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +16,11 @@ public class User {
 
     // Constructores, getters y setters
 
-    public User() {
+    public Usuario() {
         // Constructor vacío necesario para JPA
     }
 
-    public User(Long id, String nombre, String apellido, String usuario, String contrasena, boolean rol) {
+    public Usuario(Long id, String nombre, String apellido, String usuario, String contrasena, boolean rol) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;

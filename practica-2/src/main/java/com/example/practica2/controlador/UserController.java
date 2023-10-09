@@ -1,6 +1,6 @@
 package com.example.practica2.controlador;
 
-import com.example.practica2.entidades.User;
+import com.example.practica2.entidades.Usuario;
 import com.example.practica2.servicios.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping("/registro")
-    public ResponseEntity<String> registrarUsuario(@RequestBody User usuario) {
+    public ResponseEntity<String> registrarUsuario(@RequestBody Usuario usuario) {
         try {
             usuarioService.registrarUsuario(usuario);
             return ResponseEntity.status(HttpStatus.CREATED).body("Usuario registrado con éxito.");
