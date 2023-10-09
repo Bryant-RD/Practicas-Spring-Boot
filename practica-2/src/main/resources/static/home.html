@@ -119,14 +119,14 @@
                         <p for="headers">URL</p>
                         <p class="required-card">required</p>
                     </div>
-                    <input class="inputText" type="text" placeholder="www.ejemplo.com" autocomplete="off">
+                    <input class="inputText" id="url" type="text" placeholder="www.ejemplo.com" autocomplete="off">
                 </div>
                 <div class="card-container">
                     <div class="headers">
                         <p for="headers">Nombre del end point</p>
                         <p class="required-card">required</p>
                     </div>
-                    <input class="inputText" type="text" placeholder="ejemplo" autocomplete="off">
+                    <input class="inputText" id="nombre" type="text" placeholder="ejemplo" autocomplete="off">
                 </div>
             </div>
             <div class="card-container">
@@ -142,7 +142,7 @@
                         <p for="contentType">Expiracion</p>
                         <p class="required-card">Required</p> 
                     </div>
-                    <select id="contentType">
+                    <select id="timeExpire">
                         <option value="1 año">1 año</option>
                         <option value="1 mes">1 mes</option>
                         <option value="1 semana">1 semana</option>
@@ -158,7 +158,7 @@
                         <p for="contentType">Demora</p>
                         <p class="required-card-txt">optional</p> 
                     </div>
-                    <input class="inputText" type="number">
+                    <input id="timeDemora" class="inputText" type="number">
                     <p class="description">
                         Indique el tiempo de demora que tardará el end point en responder con la data.
                     </p>
@@ -169,16 +169,17 @@
                     <p for="contentType">JWT</p>
                     <p class="required-card-txt">optional</p> 
                 </div>
-                <input type="checkbox">
+                <input id="cbxJWT" type="checkbox">
                 <p class="description">
                     Indique el tiempo de demora que tardará el end point en responder con la data.
                 </p>
             </div>
-            <button class="btn-send" type="submit">Enviar Petición</button>
+            <button id="btnSend" class="btn-send" type="submit">Enviar Petición</button>
         </form>
     </section>
     <footer>
 
     </footer>
+    <script type="module" src="./js/home.js"></script>
 </body>
 </html>
