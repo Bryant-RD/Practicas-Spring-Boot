@@ -20,23 +20,24 @@ public class EndpointController {
         this.endpointService = endpointService;
     }
 
-    @PostMapping
-    public ResponseEntity<Endpoint> crearEndpoint(@RequestBody Endpoint endpoint) {
-        // Llama al servicio para crear un nuevo endpoint
-        Endpoint nuevoEndpoint = endpointService.crearEndpoint(endpoint);
-
-        //EJEMPLO
-//        return ResponseEntity.status(Integer.parseInt(omock.getStatus())).contentType(temp).headers(headers).body(omock.getBody());
-
-
-//        return ResponseEntity
-//                .status(endpoint.getCodigoRespuesta())
-//                .contentType(endpoint.getContentType())
-//                .headers(endpoint.getHeaders())
-//                .body(endpoint.getCuerpo());
-
-//        return ResponseEntity.status();
-    }
+//    @PostMapping
+//    public ResponseEntity<Endpoint> crearEndpoint(@RequestBody Endpoint endpoint) {
+//        // Llama al servicio para crear un nuevo endpoint
+//        Endpoint nuevoEndpoint = endpointService.crearEndpoint(endpoint);
+//
+//        //EJEMPLO
+////        return ResponseEntity.status(Integer.parseInt(omock.getStatus())).contentType(temp).headers(headers).body(omock.getBody());
+//
+//
+////        return ResponseEntity
+////                .status(endpoint.getCodigoRespuesta())
+////                .contentType(endpoint.getContentType())
+////                .headers(endpoint.getHeaders())
+////                .body(endpoint.getCuerpo());
+//
+////        return ResponseEntity.status();
+//
+//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Endpoint> obtenerEndpointPorId(@PathVariable String id) {
@@ -66,3 +67,7 @@ public class EndpointController {
         return ResponseEntity.noContent().build();
     }
 }
+
+
+
+

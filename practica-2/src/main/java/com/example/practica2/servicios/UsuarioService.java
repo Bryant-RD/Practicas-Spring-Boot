@@ -83,16 +83,14 @@ public class UsuarioService {
     }
 
     public boolean validarCredenciales(String usuario, String contrasena) {
-        // Recupera el usuario por nombre de usuario desde la base de datos
         Usuario usuarioEncontrado = usuarioRepository.findByUsuario(usuario)
                 .orElse(null);
 
-        // Verifica si se encontró un usuario y si la contraseña coincide
         if (usuarioEncontrado != null && passwordEncoder.matches(contrasena, usuarioEncontrado.getContrasena())) {
-            return true; // Las credenciales son válidas
+            return true;
         }
 
-        return false; // Las credenciales son incorrectas
+        return false;
     }
 }
 

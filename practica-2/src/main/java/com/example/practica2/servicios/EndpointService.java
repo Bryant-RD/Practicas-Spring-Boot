@@ -50,6 +50,12 @@ public class EndpointService {
         }
         endpointRepository.deleteById(Long.valueOf(id));
     }
+
+//    public Endpoint buscarPorCodigoYNombre(String codigo, String nombre) {
+//        return endpointRepository.findByCodigoAndNombre(codigo, nombre)
+//                .orElseThrow(() -> new IllegalArgumentException("Endpoint no encontrado"));
+//    }
+
 }
 
 

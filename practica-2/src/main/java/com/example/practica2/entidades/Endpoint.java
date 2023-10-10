@@ -1,7 +1,6 @@
 package com.example.practica2.entidades;
 
 import jakarta.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Endpoint {
@@ -15,12 +14,12 @@ public class Endpoint {
     private String headers;
     private int codigoRespuesta;
     private String contentType;
-    private String cuerpo;
+    private static String cuerpo;
     private String nombre;
     private String codigolenguaje;
     private String descripcion;
     private String tiempoExpiracion;
-    private int demoraRespuesta;
+    private static int demoraRespuesta;
     private boolean validarJwt;
     private String fechaCreacion;
 
@@ -78,7 +77,7 @@ public class Endpoint {
         this.contentType = contentType;
     }
 
-    public String getCuerpo() {
+    public static String getCuerpo() {
         return cuerpo;
     }
 
@@ -110,7 +109,7 @@ public class Endpoint {
         this.tiempoExpiracion = tiempoExpiracion;
     }
 
-    public int getDemoraRespuesta() {
+    public static int getDemoraRespuesta() {
         return demoraRespuesta;
     }
 
