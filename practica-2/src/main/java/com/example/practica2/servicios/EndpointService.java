@@ -19,23 +19,19 @@ public class EndpointService {
     }
 
     public Endpoint crearEndpoint(Endpoint endpoint) {
-        // Implementa la lógica para crear un nuevo endpoint
         return endpointRepository.save(endpoint);
     }
 
     public Endpoint obtenerEndpointPorId(String id) {
-        // Implementa la lógica para obtener un endpoint por su ID
         return endpointRepository.findById(Long.valueOf(id))
                 .orElseThrow(() -> new IllegalArgumentException("Endpoint no encontrado"));
     }
 
     public List<Endpoint> obtenerTodosLosEndpoints() {
-        // Implementa la lógica para obtener todos los endpoints
         return endpointRepository.findAll();
     }
 
     public Endpoint actualizarEndpoint(String id, Endpoint endpoint) {
-        // Implementa la lógica para actualizar un endpoint por su ID
         if (!endpointRepository.existsById(Long.valueOf(id))) {
             throw new IllegalArgumentException("Endpoint no encontrado");
         }
@@ -44,7 +40,6 @@ public class EndpointService {
     }
 
     public void eliminarEndpoint(String id) {
-        // Implementa la lógica para eliminar un endpoint por su ID
         if (!endpointRepository.existsById(Long.valueOf(id))) {
             throw new IllegalArgumentException("Endpoint no encontrado");
         }

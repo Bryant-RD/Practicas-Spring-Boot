@@ -9,6 +9,7 @@
 //import com.example.practica2.entidades.Endpoint;
 //import com.example.practica2.servicios.EndpointService;
 //
+//
 //@RestController
 //@RequestMapping("/api")
 //public class ApiMockController {
@@ -21,9 +22,16 @@
 //        Endpoint endpoint = endpointService.buscarPorCodigoYNombre(name, codigo);
 //
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-//        System.out.println(LocalDateTime.now().format(formatter) + " otra: " + endpoint.getTiempoExpiracion().format(String.valueOf(formatter)));
+//        String fechaActualFormateada = LocalDateTime.now().format(formatter);
+//        String fechaExpiracionFormateada = String.format(String.valueOf(formatter));
 //
-//        if (LocalDateTime.now().isBefore(endpoint.getTiempoExpiracion())) {
+//        System.out.println(fechaActualFormateada + " otra: " + fechaExpiracionFormateada);
+//
+//
+//        LocalDateTime fechaActual = LocalDateTime.parse(fechaActualFormateada, formatter);
+//        LocalDateTime fechaExpiracion = LocalDateTime.parse(fechaExpiracionFormateada, formatter);
+//
+//        if (fechaActual.isBefore(fechaExpiracion)) {
 //            MediaType contentType = null;
 //
 //            if (endpoint.getContentType().equals("text/plain")) {

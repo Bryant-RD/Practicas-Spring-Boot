@@ -141,4 +141,7 @@ public class Endpoint {
         this.codigolenguaje = codigolenguaje;
     }
 
+    public String getStatus() {
+        return null;
+    }
 }
