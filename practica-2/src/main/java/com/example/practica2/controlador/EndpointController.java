@@ -1,8 +1,11 @@
 package com.example.practica2.controlador;
 
 import com.example.practica2.entidades.Endpoint;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.practica2.servicios.EndpointService;
@@ -20,24 +23,43 @@ public class EndpointController {
         this.endpointService = endpointService;
     }
 
-//    @PostMapping
-//    public ResponseEntity<Endpoint> crearEndpoint(@RequestBody Endpoint endpoint) {
-//        // Llama al servicio para crear un nuevo endpoint
-//        Endpoint nuevoEndpoint = endpointService.crearEndpoint(endpoint);
-//
-//        //EJEMPLO
-////        return ResponseEntity.status(Integer.parseInt(omock.getStatus())).contentType(temp).headers(headers).body(omock.getBody());
-//
-//
-////        return ResponseEntity
-////                .status(endpoint.getCodigoRespuesta())
-////                .contentType(endpoint.getContentType())
-////                .headers(endpoint.getHeaders())
-////                .body(endpoint.getCuerpo());
-//
-////        return ResponseEntity.status();
-//
-//    }
+    @PostMapping
+    public ResponseEntity<Endpoint> crearEndpoint(@RequestBody Endpoint endpoint) {
+        // Llama al servicio para crear un nuevo endpoint
+        Endpoint nuevoEndpoint = endpointService.crearEndpoint(endpoint);
+        MediaType contentType = null;
+
+        if (nuevoEndpoint.getContentType().equals("text/plain")) {
+            contentType = MediaType.TEXT_PLAIN;
+        } else if (nuevoEndpoint.getContentType().equals("text/html")) {
+            contentType = MediaType.TEXT_HTML;
+        } else if (nuevoEndpoint.getContentType().equals("application/json")) {
+            contentType = MediaType.APPLICATION_JSON;
+        } else if (nuevoEndpoint.getContentType().equals("application/xml")) {
+            contentType = MediaType.APPLICATION_XML;
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        if (!nuevoEndpoint.getHeaders().isEmpty()) {
+            JSONObject headersJson = new JSONObject(endpoint.getHeaders());
+            for (String key : headersJson.keySet()) {
+                headers.add(key, headersJson.getString(key));
+            }
+        }
+
+        try {
+            Thread.sleep(nuevoEndpoint.getDemoraRespuesta() * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        return ResponseEntity
+                .status(Integer.parseInt(nuevoEndpoint.getStatus()))
+                .contentType(contentType)
+                .headers(headers)
+                .body(nuevoEndpoint);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Endpoint> obtenerEndpointPorId(@PathVariable String id) {

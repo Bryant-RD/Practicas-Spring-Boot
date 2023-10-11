@@ -17,7 +17,7 @@ const btnSend = document.getElementById("btnSend");
 
 
 
-btnSend.addEventListener("click", (e) => {
+btnSend.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const fecha = obtenerFecha();
@@ -40,9 +40,9 @@ btnSend.addEventListener("click", (e) => {
         fechaCreacion:fecha
     }
 
-    console.log(request)
 
-    // createEndPoint(request);
+    const data = await createEndPoint(request);
+    console.log(data)
 
 
 })
