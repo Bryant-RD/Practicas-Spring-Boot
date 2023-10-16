@@ -1,0 +1,44 @@
+
+version: "3.8"
+
+services:
+
+  app:
+    image: practica-2-h2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=practica-2
+      - DB_USERNAME=root
+      - DB_PASSWORD=password
+      - PORT=8080
+    ports:
+      - "8080:8080"
+
+  db:
+    image: h2database/h2
+    environment:
+      - MODE=server
+      - TCP_PORT=3306
+      - ROOT_LOGIN=root
+      - ROOT_PASSWORD=password
+      - DATA_SOURCE_URL=jdbc:h2:mem:test
+    ports:
+      - "8082:8082"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    ports:
+      - "8081:8081"
+
+volumes:
+
+  db-data:
+    external: false
