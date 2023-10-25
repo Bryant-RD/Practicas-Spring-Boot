@@ -3,24 +3,22 @@ package principal.clientesensor;
 import jakarta.jms.ConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.connection.CachingConnectionFactory;
+import org.springframework.jms.core.JmsTemplate;
 
 
 @Configuration
-public class JMSConfig {
+public class JmsConfig {
 
     @Bean
     public ConnectionFactory connectionFactory() {
-        CachingConnectionFactory factory = new CachingConnectionFactory();
-        // Configura tu conexión JMS aquí
-        // Ejemplo:
-        // factory.setTargetConnectionFactory(yourActualConnectionFactory());
-        return (ConnectionFactory) factory;
+        CachingConnectionFactory cachingConnectionFactory = new CachingConnectionFactory();
+        cachingConnectionFactory.setTargetConnectionFactory(new org.apache.activemq.ActiveMQConnectionFactory());
+        return (ConnectionFactory) cachingConnectionFactory;
     }
 
     @Bean
     public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory) {
-        return new JmsTemplate((javax.jms.ConnectionFactory) connectionFactory);
+        return new JmsTemplate((ConnectionFactory) connectionFactory);
     }
 }
