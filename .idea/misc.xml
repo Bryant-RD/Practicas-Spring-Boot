@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Brocker Mensajeria/Cliente-Sensor" />
     <file type="web" url="file://$PROJECT_DIR$/Brocker-Mensajeria" />
     <file type="web" url="file://$PROJECT_DIR$/crud-simple" />
     <file type="web" url="file://$PROJECT_DIR$/practica-2" />
