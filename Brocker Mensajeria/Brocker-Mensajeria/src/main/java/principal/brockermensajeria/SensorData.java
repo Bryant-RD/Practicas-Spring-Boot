@@ -1,17 +1,20 @@
-package principal.brockermensajeria.servicio;
+package principal.brockermensajeria;
 
 public class SensorData {
-    private String fechaGeneracion;
+
+    private String fechaGeneración;
     private int IdDispositivo;
     private double temperatura;
     private double humedad;
 
-    public String getFechaGeneracion() {
-        return fechaGeneracion;
+
+
+    public String getFechaGeneración() {
+        return fechaGeneración;
     }
 
-    public void setFechaGeneracion(String fechaGeneracion) {
-        this.fechaGeneracion = fechaGeneracion;
+    public void setFechaGeneración(String fechaGeneración) {
+        this.fechaGeneración = fechaGeneración;
     }
 
     public int getIdDispositivo() {
@@ -37,6 +40,7 @@ public class SensorData {
     public void setHumedad(double humedad) {
         this.humedad = humedad;
     }
+
 
 
 }

@@ -1,5 +1,6 @@
 package principal.brockermensajeria;
 
+import jakarta.jms.ConnectionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,8 @@ public class BrockerMensajeriaApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BrockerMensajeriaApplication.class, args);
+        System.out.println("SERVIDOR ARRIBA");
+
     }
 
 }

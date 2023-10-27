@@ -35,6 +35,12 @@ public class SensorClient {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+//            System.out.println("Datos Generados:");
+//            System.out.println("Fecha Generación: " + date);
+//            System.out.println("ID Dispositivo: " + deviceId);
+//            System.out.println("Temperatura: " + temperature);
+//            System.out.println("Humedad: " + humidity);
+//            System.out.println();
         }
     }
 }
