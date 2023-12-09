@@ -1,10 +1,9 @@
-
 version: "3.8"
 
 services:
 
   app:
-    image: practica-2-h2
+    image: bryantrt/docker-compose:lastest
     build:
       context: .
       dockerfile: Dockerfile
@@ -19,7 +18,10 @@ services:
       - "8080:8080"
 
   db:
-    image: h2database/h2
+    image: tumcyk/h2-database
+    command: ["java", "-cp", "/app/practica-2-0.0.1-SNAPSHOT.jar", "org.h2.tools.Server"]
+    volumes:
+      - ./build/libs/practica-2-0.0.1-SNAPSHOT.jar:/app/practica-2-0.0.1-SNAPSHOT.jar
     environment:
       - MODE=server
       - TCP_PORT=3306
