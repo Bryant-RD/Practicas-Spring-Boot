@@ -3,6 +3,7 @@ version: "3.8"
 services:
 
   app:
+    image: bryantrt/docker-compose:lastest
     build:
       context: .
       dockerfile: Dockerfile
