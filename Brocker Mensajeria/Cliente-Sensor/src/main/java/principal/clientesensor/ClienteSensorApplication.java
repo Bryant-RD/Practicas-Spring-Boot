@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class PruebaJmsApplication {
+public class ClienteSensorApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(PruebaJmsApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(ClienteSensorApplication.class, args);
 
         SensorClient sensorClient = context.getBean(SensorClient.class);
         sensorClient.simulateSensorData();
