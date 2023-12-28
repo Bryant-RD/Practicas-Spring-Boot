@@ -12,6 +12,21 @@ public class Usuario implements Serializable {
     private String password;
     private String correo;
 
+    private String rol;
+
+    public Usuario(int id, String nombre, String userName, String password, String correo, String rol) {
+        this.id = id;
+        this.nombre = nombre;
+        this.userName = userName;
+        this.password = password;
+        this.correo = correo;
+        this.rol = rol;
+    }
+
+    public Usuario() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -50,5 +65,13 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }
