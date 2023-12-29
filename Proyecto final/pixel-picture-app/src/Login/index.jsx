@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { loginUser } from "../API/usersAPI";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -8,6 +9,8 @@ export const Login = () => {
     e.preventDefault();
     // Aquí puedes agregar la lógica de autenticación
     console.log("Usuario:", username, "Contraseña:", password);
+
+    loginUser(username, password);
   };
 
   return (

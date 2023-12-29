@@ -7,7 +7,7 @@ import { getUsers } from '../API/usersAPI';
 
 export const HomeAdmin = () => {
 
-  const userColumns = ['ID', 'Nombre', 'Correo', 'Acciones'];
+  const userColumns = ['ID', 'Nombre', "UserName" ,'Correo', "rol" , 'Acciones'];
   const userData = [
     { id: 1, nombre: 'Usuario1', correo: 'usuario1@example.com' },
     { id: 2, nombre: 'Usuario2', correo: 'usuario2@example.com' },
@@ -61,7 +61,7 @@ export const HomeAdmin = () => {
             </div>
             <div className='p-4'>
                 <h2 className='text-2xl font-semibold text-center mb-2'>Listado de usuarios</h2> 
-                <Table columns={userColumns} data={userData} pageSize={10} />
+                <Table columns={userColumns} data={userData2} pageSize={10} />
             </div>
             <ChartView datos={orderData} />
             

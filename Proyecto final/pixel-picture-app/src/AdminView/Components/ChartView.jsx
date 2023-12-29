@@ -8,7 +8,7 @@ const ChartView = ({datos}) => {
 
 
 //   Filtrar por fecha actual
-  const currentDate = formatDate(new Date());
+  const currentDate = "27/12/2023"; //formatDate(new Date())
   const filteredData = datos.filter(item => item.fecha == currentDate);
 
 //   Calcular la cantidad de compras realizadas, solicitudes pendientes y realizadas

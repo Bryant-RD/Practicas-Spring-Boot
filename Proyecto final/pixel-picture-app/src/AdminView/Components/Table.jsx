@@ -85,11 +85,24 @@ const Table = ({ columns, data, pageSize }) => {
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
-  const currentData = data.slice(startIndex, endIndex);
+  let nuevoArrayEnMinusculas = data.map((objeto) => {
+    let objetoEnMinusculas = {};
+    for (const key in objeto) {
+      if (Object.hasOwnProperty.call(objeto, key)) {
+        objetoEnMinusculas[key.toLowerCase()] = objeto[key];
+      }
+    }
+    return objetoEnMinusculas;
+  });
+
+  const currentData = nuevoArrayEnMinusculas.slice(startIndex, endIndex);
+  //ESTE ES UN TEST
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
+
 
   return (
     <div className="overflow-x-auto w-10/12 m-auto" style={{ height: "auto" }}>

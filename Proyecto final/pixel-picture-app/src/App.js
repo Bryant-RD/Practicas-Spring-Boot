@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={ <Login /> } />
-        <Route path='/HomeCliente' element={ <HomeClient />} />
+        <Route path='/HomeClient' element={ <HomeClient />} />
         <Route path='/homeAdmin' element={ <HomeAdmin /> } />
         <Route path='/userForm' element={ <UserForm /> } />
         <Route path='/userList' element={ <UserList /> } />

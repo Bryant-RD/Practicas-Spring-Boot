@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from '../img/pixel-logo.png'; // Asegúrate de proporcionar la ruta correcta para tu logo
+import { getToken } from '../API/auth';
 // import './TuArchivoDeEstilos.css'; // Asegúrate de importar o incluir tus estilos
 
 const Menu = () => {
+
+  if (!getToken()) {
+    window.location.href = "/"
+  }
+
   return (
     <div className='bg-blue-800 flex justify-between'>
       <img id='imgLogo' src={logo} className='my-3 mx-10'/>
