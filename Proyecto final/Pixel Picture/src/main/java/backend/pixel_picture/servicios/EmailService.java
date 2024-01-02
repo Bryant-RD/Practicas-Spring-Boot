@@ -31,7 +31,7 @@ public class EmailService {
 
         // Construir el email
         Email email = EmailBuilder.startingBlank()
-                .from("noreply@nuestraplataforma.com")
+                .from("noreply@insightconnect.me")
                 .to(usuario.getCorreo())
                 .withSubject(asunto)
                 .withPlainText(cuerpo)
@@ -56,7 +56,7 @@ public class EmailService {
 
         // Construir el email
         Email email = EmailBuilder.startingBlank()
-                .from("noreply@nuestraplataforma.com")
+                .from("noreply@insightconnect.me")
                 .to(empleado.getCorreo())
                 .withSubject(asunto)
                 .withPlainText(cuerpo)
@@ -82,7 +82,7 @@ public class EmailService {
 
         // Construir el email
         Email email = EmailBuilder.startingBlank()
-                .from("noreply@nuestraplataforma.com")
+                .from("noreply@insightconnect.me")
                 .to(cliente.getCorreo())
                 .withSubject(asunto)
                 .withPlainText(cuerpo)
