@@ -21,6 +21,8 @@ public class UserController {
     @PostMapping("/new")
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
         System.out.println("NEW USER" + usuario.getId());
+        System.out.println("NEW USER" + usuario.getNombre());
+        System.out.println("NEW USER" + usuario.getCorreo());
         return userRepository.save(usuario);
     }
 
@@ -33,7 +35,7 @@ public class UserController {
 
     // Leer un estudiante por matrícula
     @GetMapping("/{id}")
-    public Optional<Usuario> obtenerUsuarioPorId(@PathVariable int id) {
+    public Optional<Usuario> obtenerUsuarioPorId(@PathVariable long id) {
         return userRepository.findById(id);
     }
 
@@ -46,15 +48,15 @@ public class UserController {
     }
 
     // Actualizar un estudiante
-    @PutMapping("/{id}")
+    @PutMapping("/{code}")
     public Usuario actualizarEstudiante(@PathVariable int code, @RequestBody Usuario usuarioActualizado) {
         usuarioActualizado.setId(code);
         return userRepository.save(usuarioActualizado);
     }
 
     // Eliminar un estudiante
-    @DeleteMapping("/{id}")
-    public void eliminarEstudiante(@PathVariable int code) {
+    @DeleteMapping("/{code}")
+    public void eliminarEstudiante(@PathVariable long code) {
         userRepository.deleteById(code);
     }
 

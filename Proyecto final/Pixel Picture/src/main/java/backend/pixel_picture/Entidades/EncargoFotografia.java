@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 public class EncargoFotografia implements Serializable {
     @Id
-    private int id;
+    private long id;
     private String servicio;
     private String encargado;
     private String fecha;
@@ -24,11 +24,11 @@ public class EncargoFotografia implements Serializable {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -31,7 +31,7 @@ public class EncargoController {
 
     // Leer un estudiante por matrícula
     @GetMapping("/{id}")
-    public Optional<EncargoFotografia> obtenerEncargoPorId(@PathVariable int code) {
+    public Optional<EncargoFotografia> obtenerEncargoPorId(@PathVariable long code) {
         return encargoRepository.findById(code);
     }
 
@@ -44,7 +44,7 @@ public class EncargoController {
 
     // Eliminar un estudiante
     @DeleteMapping("/{id}")
-    public void eliminarEncargo(@PathVariable int code) {
+    public void eliminarEncargo(@PathVariable long code) {
         encargoRepository.deleteById(code);
     }
 }

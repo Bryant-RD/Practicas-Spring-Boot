@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../img/pixel-logo.png'; // Asegúrate de proporcionar la ruta correcta para tu logo
 import { getToken } from '../API/auth';
-// import './TuArchivoDeEstilos.css'; // Asegúrate de importar o incluir tus estilos
+import { getUserByUsername } from '../API/usersAPI';
+import { MenuCliente } from './MenuCliente';
+import { MenuEmplooyer } from './MenuEmplooyer';
+import { MenuAdmin } from './MenuAdmin';
 
 const Menu = () => {
+  const [userRole, setUserRole] = useState(null);
 
-  if (!getToken()) {
-    window.location.href = "/"
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (!getToken()) {
+          window.location.href = "/";
+        }
+
+        const userName = localStorage.getItem('userName');
+        const usuario = await getUserByUsername(userName);
+
+        setUserRole(usuario.rol);
+      } catch (error) {
+        console.error(error);
+        // Maneja el error según tus necesidades
+      }
+    };
+
+    fetchData();
+  }, []); // El segundo parámetro es una dependencia vacía para que el efecto se ejecute solo una vez al montar el componente
+
+
+  // Renderizar según el rol del usuario
+  switch (userRole) {
+    case 'ADMIN':
+      return <MenuAdmin />;
+    case 'CLIENTE':
+      return <MenuCliente />;
+    case 'EMPLOYEER':
+      window.location.href = "/homeEmployeer"
+
+      return <MenuEmplooyer />;
+    default:
+      return null; // Otra opción en caso de un rol desconocido
   }
-
-  return (
-    <div className='bg-blue-800 flex justify-between'>
-      <img id='imgLogo' src={logo} className='my-3 mx-10'/>
-      <nav className='flex justify-end px-10 items-center'>
-        <ul className='h-16 w-96 text-white flex justify-between items-center text-xl'>
-          <li className='cursor-pointer underline-animation' >Home</li>
-          <li className='cursor-pointer underline-animation' >Mis compras</li>
-          <li className='cursor-pointer underline-animation' >Perfil</li>
-          <li className='cursor-pointer underline-animation' >Cerrar sesion</li>
-        </ul>
-      </nav>
-    </div>
-  );
 };
 
 export default Menu;

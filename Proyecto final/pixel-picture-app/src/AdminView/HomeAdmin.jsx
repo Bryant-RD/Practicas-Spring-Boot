@@ -22,7 +22,6 @@ export const HomeAdmin = () => {
       try {
         const data = await getUsers();
         setUserData2(data);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -30,7 +29,6 @@ export const HomeAdmin = () => {
 
     fetchData();
 
-    console.log(userData2);
   }, [])
   
 
