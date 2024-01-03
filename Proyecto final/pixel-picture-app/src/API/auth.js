@@ -19,3 +19,9 @@ const fetchWithAuthorization = async (url, options = {}) => {
     const response = await fetch(url, { ...options, headers });
     return response;
   };
+
+export const closeSession = () => {
+    // Limpiar todo el localStorage
+    localStorage.clear();
+    window.location.href = "/"
+}

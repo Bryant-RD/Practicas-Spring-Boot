@@ -53,7 +53,7 @@ export const Login = () => {
             Iniciar Sesión
           </button>
         </form>
-        <p className="mt-4">No estas registrado?, registrate <a className="text-blue-800 font-bold underline hover:decoration-4" href="/homeCliente"> aqui</a></p>
+        <p className="mt-4">No estas registrado?, registrate <a className="text-blue-800 font-bold underline hover:decoration-4" href="/userForm/"> aqui</a></p>
       </div>
     </div>
   );

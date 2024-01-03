@@ -37,6 +37,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Login /> } />
         {/* <Route path='*' element={<NotFound />} /> */}
+        <Route path='/userForm/:id?' element={ <UserForm /> } />
 
         {userRole === "ADMIN" && (
             <>

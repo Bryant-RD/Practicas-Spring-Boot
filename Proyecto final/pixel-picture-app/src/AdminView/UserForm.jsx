@@ -67,6 +67,8 @@ const UserForm = () => {
     await createUser(userData);
 
     console.log(userData);
+    window.location.reload();
+
   };
 
   return (

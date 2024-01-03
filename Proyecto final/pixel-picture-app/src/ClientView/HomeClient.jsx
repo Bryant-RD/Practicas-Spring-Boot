@@ -14,7 +14,7 @@ export const HomeClient = () => {
     //       // El SDK de PayPal se ha cargado, puedes inicializar y usar las funciones de PayPal aquí
     //     };
     //     document.body.appendChild(script);
-    
+
     //     return () => {
     //       // Limpiar el script al desmontar el componente
     //       document.body.removeChild(script);
@@ -28,7 +28,7 @@ export const HomeClient = () => {
   const handleOnApprove = (data, actions) => {
     console.log('Pago aprobado:', data);
     // Puedes realizar acciones adicionales después de que el pago ha sido aprobado
-    navigate('/detalleCompra');
+    navigate('/homeClient');
   };
 
   const handleOnCancel = () => {
@@ -74,7 +74,7 @@ export const HomeClient = () => {
             <p className='text-justify mb-4 text-white'>
               Celebra el amor en sus primeras etapas con nuestro servicio de Pre-Boda. Capturamos los momentos más especiales y emotivos antes de tu gran día. Nuestro equipo de fotógrafos y videógrafos se esmera en inmortalizar la esencia de vuestro compromiso, creando recuerdos que durarán toda la vida. Garantizamos una experiencia visual única que reflejará la belleza de este capítulo inicial de tu historia de amor.
             </p>
-            <p className='bg-blue-900 text-white px-4 py-2 rounded-full inline-block mb-2'>Precio: <span id='precio' className='font-bold'>$1,000 RD</span></p>
+            <p className='bg-blue-900 text-white px-4 py-2 rounded-full inline-block mb-2'>Precio: <span id='precio' className='font-bold'>$1000 RD</span></p>
           </div>
         ))}
         {selectedService && (

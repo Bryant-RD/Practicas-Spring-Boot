@@ -12,9 +12,9 @@ const Menu = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!getToken()) {
-          window.location.href = "/";
-        }
+        // if (!getToken()) {
+        //   window.location.href = "/";
+        // }
 
         const userName = localStorage.getItem('userName');
         const usuario = await getUserByUsername(userName);
