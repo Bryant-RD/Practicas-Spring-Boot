@@ -59,7 +59,7 @@ public class EmailService {
         // Construir el email
         Email email = EmailBuilder.startingBlank()
                 .from("noreply@insightconnect.me")
-//                .to(encargo.getCorreoDelEmpleado()) // Utiliza la dirección de correo del empleado
+                .to("robarop622@vasteron.com") // Utiliza la dirección de correo del empleado
                 .withSubject(asunto)
                 .withPlainText(cuerpo)
                 .buildEmail();

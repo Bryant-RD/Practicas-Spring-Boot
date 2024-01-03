@@ -19,14 +19,20 @@ public class DataInitializer implements CommandLineRunner {
         if (!userRepository.existsById((long) 0)) {
             // Crear el usuario administrador si no existe
             Usuario adminUser = new Usuario(0, "admin", "admin", "admin123", null, "ADMIN");
-//            adminUser.setId(1);
-//            adminUser.setNombre("admin");
-//            adminUser.setPassword("admin123"); // Cambia esto por la contraseña que desees
-//            adminUser.setRol("ADMIN");
             userRepository.save(adminUser);
             System.out.println("Usuario administrador creado con éxito.");
         } else {
             System.out.println("El usuario administrador ya existe.");
+        }
+
+        // Verificar si el usuario empleado ya existe
+        if (!userRepository.existsById((long) 1)) {
+            // Crear el usuario empleado si no existe
+            Usuario empleadoUser = new Usuario(1, "Juan Pérez", "juan", "employ123", "robarop622@vasteron.com", "EMPLEADO");
+            userRepository.save(empleadoUser);
+            System.out.println("Usuario empleado creado con éxito.");
+        } else {
+            System.out.println("El usuario empleado ya existe.");
         }
     }
 }

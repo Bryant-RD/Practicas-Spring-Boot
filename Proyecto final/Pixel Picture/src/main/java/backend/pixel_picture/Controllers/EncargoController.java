@@ -15,6 +15,7 @@ public class EncargoController {
 
     @Autowired
     private EncargoRepository encargoRepository;
+    @Autowired
     private EmailService emailService;
 
     // Crear un Usuario
