@@ -1,5 +1,6 @@
 package backend.pixel_picture.servicios;
 
+import backend.pixel_picture.Entidades.EncargoFotografia;
 import backend.pixel_picture.Entidades.Usuario;
 import org.simplejavamail.api.mailer.Mailer;
 import org.simplejavamail.api.email.Email;
@@ -43,21 +44,22 @@ public class EmailService {
 
 
     // correo asignacion de trabajo
-    public void enviarCorreoAsignacionTrabajo(Usuario empleado) {
+    public void enviarCorreoAsignacionTrabajo(EncargoFotografia encargo) {
         // Construir el contenido del correo para asignación de trabajo
         String asunto = "Asignación de Trabajo Pendiente";
         String cuerpo = String.format("Hola %s,\n\n"
-                        + "Se ha realizado una compra y es necesario asignarse a trabajar en el nuevo pedido. "
+                        + "Se te ha asignado un nuevo trabajo:\n\n"
+                        + "Descripción del trabajo: %s\n\n"
                         + "Por favor, accede a la plataforma y realiza la asignación correspondiente.\n\n"
                         + "Gracias por tu colaboración.\n\n"
                         + "Saludos,\n"
                         + "El equipo de Pixel Pictures",
-                empleado.getNombre());
+                 encargo.getServicio());
 
         // Construir el email
         Email email = EmailBuilder.startingBlank()
                 .from("noreply@insightconnect.me")
-                .to(empleado.getCorreo())
+//                .to(encargo.getCorreoDelEmpleado()) // Utiliza la dirección de correo del empleado
                 .withSubject(asunto)
                 .withPlainText(cuerpo)
                 .buildEmail();
@@ -65,6 +67,7 @@ public class EmailService {
         // Enviar el email
         mailer.sendMail(email);
     }
+
 
 
     //correo de pago

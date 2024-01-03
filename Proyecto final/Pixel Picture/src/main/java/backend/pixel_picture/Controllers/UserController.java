@@ -6,6 +6,7 @@ import java.util.Optional;
 import backend.pixel_picture.Entidades.LoginDTO;
 import backend.pixel_picture.Entidades.Usuario;
 import backend.pixel_picture.Repositorios.UserRepository;
+import backend.pixel_picture.servicios.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +18,15 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    private EmailService emailService;
+
     // Crear un Usuario
     @PostMapping("/new")
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
         System.out.println("NEW USER" + usuario.getId());
         System.out.println("NEW USER" + usuario.getNombre());
         System.out.println("NEW USER" + usuario.getCorreo());
+        emailService.enviarCorreoBienvenida(usuario);
         return userRepository.save(usuario);
     }
 

@@ -24,6 +24,9 @@ public class PagoController {
     private CompraRepository compraRepository;
     private Logger logger = Logger.getLogger(PagoController.class.getName());
 
+    private static final String CUENTA_NEGOCIO = "sb-kpzwa28971958@business.example.com";
+
+
     public PagoController(ParametroRepository parametroRepository, CompraRepository compraRepository) {
         this.parametroRepository = parametroRepository;
         this.compraRepository = compraRepository;

@@ -2,6 +2,7 @@ package backend.pixel_picture.Controllers;
 
 import backend.pixel_picture.Entidades.EncargoFotografia;
 import backend.pixel_picture.Repositorios.EncargoRepository;
+import backend.pixel_picture.servicios.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +15,13 @@ public class EncargoController {
 
     @Autowired
     private EncargoRepository encargoRepository;
+    private EmailService emailService;
 
     // Crear un Usuario
     @PostMapping("/new")
     public EncargoFotografia crearEncargo(@RequestBody EncargoFotografia encargo) {
         System.out.println("NEW Encargo" + encargo.getId());
+        emailService.enviarCorreoAsignacionTrabajo(encargo);
         return encargoRepository.save(encargo);
     }
 
