@@ -8,6 +8,7 @@ import UserForm from './AdminView/UserForm';
 import { UserList } from './AdminView/UserList';
 import EmployeeDashboard from './EmployeerView/EmployeeDashBoard';
 import { getUserByUsername } from './API/usersAPI';
+import { AllSales } from './ClientView/AllSales';
 
 
 function App() {
@@ -44,7 +45,10 @@ function App() {
             </>
           )}
         {userRole === "CLIENTE" && (
-            <Route path='/HomeClient' element={ <HomeClient />} />
+            <>
+              <Route path='/HomeClient' element={ <HomeClient />} />
+              <Route path='/AllSalles' element={ <AllSales />} />
+            </>
           )}
         {userRole === "EMPLOYEER" && (
             <>

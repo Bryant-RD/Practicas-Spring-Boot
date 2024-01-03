@@ -8,7 +8,7 @@ export const MenuCliente = () => {
       <nav className='flex justify-end px-10 items-center'>
       <ul className='h-16 w-96 text-white flex justify-between items-center text-xl'>
         <li className='cursor-pointer underline-animation' > <a href="/homeClient">Home</a> </li>
-        <li className='cursor-pointer underline-animation' > <a href="http://">Mis compras</a></li>
+        <li className='cursor-pointer underline-animation' > <a href="/AllSalles">Mis compras</a></li>
         <li className='cursor-pointer underline-animation' >Cerrar sesion</li>
       </ul>
     </nav>
